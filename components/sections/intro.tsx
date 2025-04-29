@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { ChevronDown } from "lucide-react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react";
+import { ChevronDown } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Intro() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
-  })
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.9])
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.9]);
 
   return (
     <motion.div
@@ -40,7 +40,8 @@ export default function Intro() {
         transition={{ duration: 0.8, delay: 0.4 }}
         className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-8"
       >
-        Exploring the data behind the state's most congested roadways and what it means for Texans
+        Exploring the data behind the state's most congested roadways and what
+        it means for Texans
       </motion.p>
 
       <motion.p
@@ -50,18 +51,10 @@ export default function Intro() {
         className="text-base md:text-lg max-w-xl mb-12"
       >
         A data-driven narrative by the{" "}
-        <span className="font-semibold">Artificial Intelligence in Transportation Lab</span>
+        <span className="font-semibold">
+          Artificial Intelligence in Transportation Lab
+        </span>
       </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-muted-foreground"
-      >
-        <span className="text-sm mb-2">Scroll to explore</span>
-        <ChevronDown className="h-6 w-6 animate-bounce" />
-      </motion.div>
     </motion.div>
-  )
+  );
 }
