@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { ChevronDown } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Intro() {
